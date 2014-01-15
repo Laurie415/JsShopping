@@ -10,9 +10,7 @@
 	<div id="main" x-ng-controller="petsCtrl">
 		<h2>Adopt A Kitten</h2>
 		<ul>
-			<li>{{pets[0]}}</li>
-			<li>{{pets[1]}}</li>
-			<li>{{pets[2]}}</li>
+			<li x-ng-repeat="pet in pets">{{pet}}</li>
 		</ul>
 	</div>
 </body>
