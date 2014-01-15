@@ -10,11 +10,16 @@
 	<div id="main" x-ng-controller="petsCtrl">
 		<h2>Adopt A Kitten</h2>
 		<ul>
-			<li x-ng-repeat="pet in pets">
-				<input type="checkbox">{{pet.name}}<br />
+			<li x-ng-repeat="pet in pets" class="adopted-{{pet.adopted}}">
+				<input type="checkbox" x-ng-click="pet.adopted = !pet.adopted">{{pet.name}}<br />
 				<img src="{{pet.image}}">
 			</li>
 		</ul>
+		<form>
+			<input type="name" size="30" placeholder="add new kitten name here">
+			<input type="text" size="30" placeholder="add new kitten image url here">
+			<input type="submit" value="add">
+		</form>
 	</div>
 </body>
 </html>
