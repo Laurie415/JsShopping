@@ -1,4 +1,6 @@
 function petsCtrl($scope) {
+	$scope.newPetName = "";
+	$scope.newPetImage = "";
 	$scope.pets = [
 		{name:"Ben", image:"http://www.placekitten.com/150/150",adopted:false},
 		{name:"Pickle", image:"http://www.placekitten.com/151/150",adopted:false},
@@ -6,6 +8,13 @@ function petsCtrl($scope) {
 	];
 
 	$scope.addNewPet = function() {
-		$scope.pets.push({name:$scope.newPetName,image:$scope.newPetImage,adopted:false});
+		if ($scope.newPetName != "" && $scope.newPetImage != "") {
+			$scope.pets.push({name:$scope.newPetName,image:$scope.newPetImage,adopted:false});
+			$scope.newPetName = "";
+			$scope.newPetImage = "";
+		}
+		else {
+			alert('please fill out form');
+		}
 	};
 }

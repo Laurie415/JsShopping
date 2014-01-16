@@ -12,11 +12,11 @@
 			<div x-ng-controller="petsCtrl">
 				<ul>
 					<li x-ng-repeat="pet in pets" class="adopted-{{pet.adopted}}">
-						<input type="checkbox" x-ng-click="pet.adopted = !pet.adopted">{{pet.name}}<br />
+						<input type="checkbox" x-ng-model="pet.adopted">{{pet.name}}<br />
 						<img src="{{pet.image}}">
 					</li>
 				</ul>
-				<form  x-ng-submit="addNewPet();">
+				<form x-ng-submit="addNewPet();">
 					<input type="name" size="30" placeholder="add new kitten name here" x-ng-model="newPetName">
 					<input type="text" size="30" placeholder="add new kitten image url here" x-ng-model="newPetImage">
 					<input type="submit" value="add">
