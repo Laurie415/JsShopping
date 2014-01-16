@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html x-ng-app="">
-<head>
-	<title>Adopt a Kitten</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script type="text/javascript" src="script.js"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
-</head>
-<body>
-	<div id="main" x-ng-controller="petsCtrl">
-		<h2>Adopt A Kitten</h2>
-		<ul>
-			<li x-ng-repeat="pet in pets" class="adopted-{{pet.adopted}}">
-				<input type="checkbox" x-ng-click="pet.adopted = !pet.adopted">{{pet.name}}<br />
-				<img src="{{pet.image}}">
-			</li>
-		</ul>
-		<form>
-			<input type="name" size="30" placeholder="add new kitten name here">
-			<input type="text" size="30" placeholder="add new kitten image url here">
-			<input type="submit" value="add">
-		</form>
-	</div>
-</body>
+	<head>
+		<title>Adopt a Kitten</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="script.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
+	</head>
+	<body>
+		<div id="main">
+			<h2>Adopt A Kitten</h2>
+			<div x-ng-controller="petsCtrl">
+				<ul>
+					<li x-ng-repeat="pet in pets" class="adopted-{{pet.adopted}}">
+						<input type="checkbox" x-ng-click="pet.adopted = !pet.adopted">{{pet.name}}<br />
+						<img src="{{pet.image}}">
+					</li>
+				</ul>
+				<form  x-ng-submit="addNewPet();">
+					<input type="name" size="30" placeholder="add new kitten name here" x-ng-model="newPetName">
+					<input type="text" size="30" placeholder="add new kitten image url here" x-ng-model="newPetImage">
+					<input type="submit" value="add">
+				</form>
+			</div>
+		</div>
+	</body>
 </html>
