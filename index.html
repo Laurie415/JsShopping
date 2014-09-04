@@ -1,27 +1,62 @@
 <!DOCTYPE html>
-<html x-ng-app="">
+<!-- Declare our App -->
+<html x-ng-app="shoppingListApp">
 	<head>
-		<title>Adopt a Kitten</title>
+
+		<title>Laurie's Supermarket Helper</title>
+		<!-- Include our styling, libraries, and js code -->
+		<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.min.js"></script>
 		<script type="text/javascript" src="script.js"></script>
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
+
 	</head>
 	<body>
+
 		<div id="main">
-			<h2>Adopt A Kitten</h2>
-			<div x-ng-controller="petsCtrl">
+			<h2>Laurie's Supermarket Helper</h2>
+			<!-- Declare our controller -->
+			<div x-ng-controller="itemsCtrl">
+				<!-- Display how many items are available -->
+				<!-- Change the class when checkbox is clicked -->
+				<span>{{remainingItems()}} of {{items.length}} items unbought</span><br /><br/>
+				<!-- Run an angular function that adopts the selected pets when link is clicked -->
+				<a href="" ng-click="buyItem();">Remove item(s)</a><br/><br/>
+				
+				<!-- Titles for elements in list-->
+				<span class="item-name" style="padding-left: 63px;">Name</span>
+				<span class="item-quantity">Quantity</span>
+				<span class="item-type">Type</span>
+				<br/><hr style="color: white;"/>
+
 				<ul>
-					<li x-ng-repeat="pet in pets" class="adopted-{{pet.adopted}}">
-						<input type="checkbox" x-ng-model="pet.adopted">{{pet.name}}<br />
-						<img src="{{pet.image}}">
+					<!-- Make a repeating list item -->
+					<li x-ng-repeat="item in items">
+						<!-- Declare a model for the checkbox -->
+						<input type="checkbox" x-ng-model="item.bought">
+						<!-- Display the Item name -->
+						<span ng-class="{'Food': 'bought-food', 'Beauty': 'bought-beauty', 'Home': 'bought-home', 'Other': 'bought-other'} [item.type]">
+							<span class="item-name">{{item.name}}</span>
+							<span class="item-quantity">{{item.quantity}}</span>
+							<span class="item-type">{{item.type}}</span>
+						</span>
 					</li>
 				</ul>
-				<form x-ng-submit="addNewPet();">
-					<input type="name" size="30" placeholder="add new kitten name here" x-ng-model="newPetName">
-					<input type="text" size="30" placeholder="add new kitten image url here" x-ng-model="newPetImage">
-					<input type="submit" value="add">
+				<!-- Run a function when the form is submited that adds the pet to the available list -->
+				<form ng-submit="addNewItem();">
+					<!-- Declare a new model for the new pet name -->
+					<input type="name" size="30" placeholder="Add new item here" x-ng-model="newItemName">
+					<!-- Declare a new model for the new item quantity -->
+					<input type="text" size="30" placeholder="Add new item quantity here" x-ng-model="newItemQuantity">
+					<!-- Declare a new model for the new item type -->
+					<select x-ng-model="newItemType" ng-options="type for type in itemTypes"></select>
+					<br/><br/>
+					<input type="submit" value="Add an Item">
 				</form>
 			</div>
 		</div>
+
 	</body>
 </html>
+
+

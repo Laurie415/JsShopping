@@ -1,12 +1,25 @@
+
+
 body {
-	font-family: Helvetica, sans-serif;
+	font-family: Ubuntu, sans-serif;
+	background-image: url('flower.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+select {
+	width: 324px;
+	height: auto;
 }
 
 #main {
 	width: 35%;
 	margin: 0 auto;
 	margin-top: 60px;
-	border: 3px dashed lightgrey;
+	border: dashed;
+	border-color: white;
+	border-width: 3px;
+	border-radius: 10%;
 	padding: 15px;
 }
 
@@ -23,11 +36,42 @@ body {
 	margin: 0 auto;
 }
 
-.adopted-true {
+.bought-food {
   text-decoration: line-through;
-  color: lightblue;
+  color: white;
 }
 
-img {
-	border: 1px solid lightblue;
+.bought-beauty {
+  text-decoration: line-through;
+  color: blue;
 }
+
+.bought-home {
+  text-decoration: line-through;
+  color: brown;
+}
+
+.bought-other {
+  text-decoration: line-through;
+  color: purple;
+}
+
+.item-name {
+	position: absolute;
+	text-align: left;
+}
+
+.item-quantity {
+	width: 35%;
+	position: absolute;
+	right: 0px;
+	padding-right: 17%;
+}
+
+.item-type {
+	width: 35%;
+	position: absolute;
+	right: 0px;
+	padding-right: 5%;
+}
+
