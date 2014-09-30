@@ -26,7 +26,7 @@
 				<!-- Titles for elements in list-->
 				<span class="item-name" style="padding-left: 63px;">Name</span>
 				<span class="item-quantity">Quantity</span>
-				<span class="item-type">Type</span>
+				<!-- <span class="item-type">Type</span> -->
 				<br/><hr style="color: white;"/>
 
 				<ul>
@@ -35,10 +35,10 @@
 						<!-- Declare a model for the checkbox -->
 						<input type="checkbox" x-ng-model="item.bought">
 						<!-- Display the Item name -->
-						<span ng-class="{'Food': 'bought-food', 'Beauty': 'bought-beauty', 'Home': 'bought-home', 'Other': 'bought-other'} [item.type]">
+					<!-- 	<span ng-class="{'Food': 'bought-food', 'Beauty': 'bought-beauty', 'Home': 'bought-home', 'Other': 'bought-other'} [item.type]"> -->
 							<span class="item-name">{{item.name}}</span>
 							<span class="item-quantity">{{item.quantity}}</span>
-							<span class="item-type">{{item.type}}</span>
+							<!-- <span class="item-type">{{item.type}}</span> -->
 						</span>
 					</li>
 				</ul>
@@ -49,7 +49,7 @@
 					<!-- Declare a new model for the new item quantity -->
 					<input type="text" size="30" placeholder="Add new item quantity here" x-ng-model="newItemQuantity">
 					<!-- Declare a new model for the new item type -->
-					<select x-ng-model="newItemType" ng-options="type for type in itemTypes"></select>
+					<!-- <select x-ng-model="newItemType" ng-options="type for type in itemTypes"></select> -->
 					<br/><br/>
 					<input type="submit" value="Add an Item">
 				</form>

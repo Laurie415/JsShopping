@@ -8,7 +8,7 @@ app.controller('itemsCtrl', function($scope) {
 	$scope.newItemQuantity = "";
 
 	// These are the types available.
-	$scope.itemTypes = ["Food", "Beauty", "Home", "Other"];
+	// $scope.itemTypes = ["Food", "Beauty", "Home", "Other"];
 
 	// This acts as our model.
 	$scope.items = [];

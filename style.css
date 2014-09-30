@@ -58,7 +58,7 @@ select {
 
 .item-name {
 	position: absolute;
-	text-align: left;
+	text-align: center;
 }
 
 .item-quantity {
